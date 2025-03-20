@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asal Yazdanpanah | Portfolio</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet">
+    <style>
+        /* Dark Mode Color Palette */
+        :root {
+            --bg-color: #1E1E2E;
+            --card-bg: #282A36;
+            --header-color: #B197FC;
+            --project-title-color: #FF8FE2;
+            --university-link-color: #FFA3FD;
+            --text-color: #EDEDED;
+            --hover-color: #C792EA;
+            --border-color: rgba(106, 13, 173, 0.6);
+            --gradient-bg: linear-gradient(135deg, #6A0DAD, #BB86FC);
+        }
+
+        /* General Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        /* 📌 Laptop Header */
+        .header {
+            background: var(--gradient-bg);
+            padding: 18px 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 0 0 15px 15px;
+        }
+
+        .header a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .header a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* 📌 Mobile Header (Minimal) */
+        @media (max-width: 768px) {
+            .header {
+                padding: 10px;
+                gap: 15px;
+            }
+
+            .header a {
+                font-size: 14px;
+                padding: 6px 10px;
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 850px;
+            margin: 50px auto;
+            padding: 35px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.08);
+            border: 2px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Profile */
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 25px;
+        }
+
+        .profile img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--project-title-color);
+            margin-bottom: 16px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--header-color);
+            font-size: 2.6em;
+            font-weight: 600;
+            margin: 8px 0;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: var(--text-color);
+            font-weight: 400;
+            max-width: 85%;
+            margin: 0 auto;
+        }
+
+        /* Sections */
+        .section {
+            background: var(--card-bg);
+            padding: 35px;
+            margin: 30px auto;
+            border-radius: 15px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            max-width: 700px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--header-color);
+            font-size: 1.8em;
+            font-weight: 600;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 1em;
+            color: #fff;
+            background: var(--gradient-bg);
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <a href="your-cv.pdf" target="_blank"><i class="fas fa-file-alt"></i> CV</a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a href="mailto:asalyp83@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <section class="profile">
+            <img src="your-photo.jpg" alt="Asal Yazdanpanah">
+            <h1>Asal Yazdanpanah</h1>
+            <p>Psychology Student at <a href="https://ut.ac.ir/en" target="_blank">University of Tehran</a></p>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-user"></i> About Me</h2>
+            <p>I am a psychology student passionate about cognitive science, human emotions, and behavioral psychology.</p>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-folder-open"></i> Projects</h2>
+            <ul class="project-list">
+                <li><i class="fas fa-book"></i> Project 1 - Research on cognitive behavior and perception.</li>
+                <li><i class="fas fa-brain"></i> Project 2 - Psychological study on human emotions.</li>
+                <li><i class="fas fa-heart"></i> Project 3 - Mental health awareness campaign.</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">© 2025 Asal Yazdanpanah | All Rights Reserved</div>
+
+
+
+</body></html>
