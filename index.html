@@ -1,201 +1,127 @@
-<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asal Yazdanpanah | Portfolio</title>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet">
-    <style>
-        /* Dark Mode Color Palette */
-        :root {
-            --bg-color: #1E1E2E;
-            --card-bg: #282A36;
-            --header-color: #B197FC;
-            --project-title-color: #FF8FE2;
-            --university-link-color: #FFA3FD;
-            --text-color: #EDEDED;
-            --hover-color: #C792EA;
-            --border-color: rgba(106, 13, 173, 0.6);
-            --gradient-bg: linear-gradient(135deg, #6A0DAD, #BB86FC);
-        }
+import React from 'react';
+import { motion } from 'framer-motion';
 
-        /* General Styles */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            text-align: center;
-        }
+function Portfolio() {
+    return (
+        <<div 
+    className="text-white min-h-screen flex flex-col items-center bg-cover bg-center bg-no-repeat"
+    style={{ backgroundImage: "url('/galaxy.jpg')" }}
+>>
+            {/* Header with Cosmic Motion Effects */}
+            <motion.div 
+                className="bg-gradient-to-r from-purple-700 to-pink-500 py-4 px-6 flex justify-center gap-6 shadow-lg w-full rounded-b-lg"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                whileHover={{ boxShadow: "0px 0px 25px rgba(199, 146, 234, 1)" }}
+                transition={{ duration: 0.2 }}
+            >
+                {["CV", "LinkedIn", "GitHub", "Email"].map((item, index) => (
+                    <motion.a
+                        key={index}
+                        href={
+                            item === "CV" ? "your-cv.pdf" :
+                            item === "LinkedIn" ? "https://linkedin.com" :
+                            item === "GitHub" ? "https://github.com" :
+                            "mailto:asalyp83@gmail.com"
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white font-semibold"
+                        whileHover={{ scale: 1.2, color: "#C792EA", textShadow: "0px 0px 15px rgba(199, 146, 234, 1)" }}
+                        transition={{ duration: 0.2 }}
+                    >
+                        <i className={`fas ${item === "CV" ? "fa-file-alt" : item === "LinkedIn" ? "fab fa-linkedin" : item === "GitHub" ? "fab fa-github" : "fas fa-envelope"} mr-1`}></i> {item}
+                    </motion.a>
+                ))}
+            </motion.div>
 
-        /* 📌 Laptop Header */
-        .header {
-            background: var(--gradient-bg);
-            padding: 18px 0;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 0 0 15px 15px;
-        }
+            {/* Main Content */}
+            <motion.div 
+                className="max-w-2xl w-full bg-[#1E1E2E] p-8 mt-10 rounded-lg shadow-lg text-center border-2 border-purple-500"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                whileHover={{ borderColor: "#C792EA", boxShadow: "0px 0px 25px rgba(199, 146, 234, 1)" }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+            >
+                {/* Profile */}
+                <motion.div
+                    className="flex flex-col items-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                >
+                    < img src="/profile.jpg" alt="Asal Yazdanpanah" className="w-32 h-32 rounded-full border-4 border-purple-400 shadow-lg" />
+                    <h1 className="text-3xl text-purple-300 font-bold mt-4">Asal Yazdanpanah</h1>
+                    <p className="text-lg mt-2">
+                        Psychology Student at 
+                        <motion.a 
+                            href="https://ut.ac.ir/en" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="text-purple-300 ml-1"
+                            whileHover={{ scale: 1.2, color: "#C792EA", textShadow: "0px 0px 15px rgba(199, 146, 234, 1)" }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            University of Tehran
+                        </motion.a>
+                    </p>
+                </motion.div>
 
-        .header a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            padding: 10px 16px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
+                {/* About Section */}
+                <motion.div 
+                    className="mt-8 bg-[#282A36] p-6 rounded-lg shadow-md border-2 border-purple-500"
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    whileHover={{ borderColor: "#C792EA", boxShadow: "0px 0px 20px rgba(199, 146, 234, 1.0)" }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                >
+                    <h2 className="text-2xl text-purple-300 font-bold"><i className="fas fa-user"></i> About Me</h2>
+                    <p className="mt-2">I am a psychology student passionate about cognitive science, human emotions, and behavioral psychology.</p>
+                </motion.div>
 
-        .header a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
-        }
+                {/* Projects Section */}
+                <motion.div 
+                    className="mt-8 bg-[#282A36] p-6 rounded-lg shadow-md border-2 border-purple-500"
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    whileHover={{ borderColor: "#C792EA", boxShadow: "0px 0px 20px rgba(199, 146, 234, 1.0)" }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                >
+                    <h2 className="text-2xl text-purple-300 font-bold flex items-center">
+                        <i className="fas fa-folder-open mr-2"></i> Projects
+                    </h2>
+                    <ul className="list-none space-y-3 mt-4">
+                        {[
+                            { name: "Project 1", url: "https://example.com/project1", description: "Research on cognitive behavior and perception." },
+                            { name: "Project 2", url: "https://example.com/project2", description: "Psychological study on human emotions." },
+                            { name: "Project 3", url: "https://example.com/project3", description: "Mental health awareness campaign." }
+                        ].map((project, index) => (
+                            <motion.li key={index} whileHover={{ scale: 1.2, color: "#C792EA", textShadow: "0px 0px 15px rgba(199, 146, 234, 1)" }}>
+                                <i className="fas fa-book text-gray-400 mr-2"></i>
+                                <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:underline">
+                                    {project.name}
+                                </a> - {project.description}
+                            </motion.li>
+                        ))}
+                    </ul>
+                </motion.div>
+            </motion.div>
 
-        /* 📌 Mobile Header (Minimal) */
-        @media (max-width: 768px) {
-            .header {
-                padding: 10px;
-                gap: 15px;
-            }
+            {/* Footer */}
+            <motion.div 
+                className="text-center py-4 mt-6 bg-gradient-to-r from-purple-700 to-pink-500 w-full rounded-t-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                whileHover={{ boxShadow: "0px 0px 25px rgba(199, 146, 234, 1)" }}
+                transition={{ duration: 0.2 }}
+            >
+                © 2025 Asal Yazdanpanah | All Rights Reserved
+            </motion.div>
+        </div>
+    );
+}
 
-            .header a {
-                font-size: 14px;
-                padding: 6px 10px;
-            }
-        }
-
-        /* Container */
-        .container {
-            max-width: 850px;
-            margin: 50px auto;
-            padding: 35px;
-            background: var(--card-bg);
-            border-radius: 15px;
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.08);
-            border: 2px solid var(--border-color);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 25px rgba(255, 255, 255, 0.1);
-        }
-
-        /* Profile */
-        .profile {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-bottom: 25px;
-        }
-
-        .profile img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--project-title-color);
-            margin-bottom: 16px;
-            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
-        }
-
-        h1 {
-            font-family: 'Poppins', sans-serif;
-            color: var(--header-color);
-            font-size: 2.6em;
-            font-weight: 600;
-            margin: 8px 0;
-        }
-
-        p {
-            font-size: 1.2em;
-            color: var(--text-color);
-            font-weight: 400;
-            max-width: 85%;
-            margin: 0 auto;
-        }
-
-        /* Sections */
-        .section {
-            background: var(--card-bg);
-            padding: 35px;
-            margin: 30px auto;
-            border-radius: 15px;
-            border: 2px solid var(--border-color);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
-            text-align: center;
-            max-width: 700px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
-        }
-
-        h2 {
-            font-family: 'Poppins', sans-serif;
-            color: var(--header-color);
-            font-size: 1.8em;
-            font-weight: 600;
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 1em;
-            color: #fff;
-            background: var(--gradient-bg);
-            margin-top: 20px;
-        }
-
-    </style>
-</head>
-<body>
-
-    <!-- Header -->
-    <div class="header">
-        <a href="your-cv.pdf" target="_blank"><i class="fas fa-file-alt"></i> CV</a>
-        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="mailto:asalyp83@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-    </div>
-
-    <!-- Main Content -->
-    <div class="container">
-        <section class="profile">
-            <img src="your-photo.jpg" alt="Asal Yazdanpanah">
-            <h1>Asal Yazdanpanah</h1>
-            <p>Psychology Student at <a href="https://ut.ac.ir/en" target="_blank">University of Tehran</a></p>
-        </section>
-
-        <section class="section">
-            <h2><i class="fas fa-user"></i> About Me</h2>
-            <p>I am a psychology student passionate about cognitive science, human emotions, and behavioral psychology.</p>
-        </section>
-
-        <section class="section">
-            <h2><i class="fas fa-folder-open"></i> Projects</h2>
-            <ul class="project-list">
-                <li><i class="fas fa-book"></i> Project 1 - Research on cognitive behavior and perception.</li>
-                <li><i class="fas fa-brain"></i> Project 2 - Psychological study on human emotions.</li>
-                <li><i class="fas fa-heart"></i> Project 3 - Mental health awareness campaign.</li>
-            </ul>
-        </section>
-    </div>
-
-    <div class="footer">© 2025 Asal Yazdanpanah | All Rights Reserved</div>
-
-
-
-</body></html>
+export default Portfolio;
