@@ -3,10 +3,7 @@ import { motion } from 'framer-motion';
 
 function Portfolio() {
     return (
-        <<div 
-    className="text-white min-h-screen flex flex-col items-center bg-cover bg-center bg-no-repeat"
-    style={{ backgroundImage: "url('/galaxy.jpg')" }}
->>
+        <div className="bg-gray-900 text-white min-h-screen flex flex-col items-center">
             {/* Header with Cosmic Motion Effects */}
             <motion.div 
                 className="bg-gradient-to-r from-purple-700 to-pink-500 py-4 px-6 flex justify-center gap-6 shadow-lg w-full rounded-b-lg"
@@ -51,7 +48,7 @@ function Portfolio() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.6 }}
                 >
-                    < img src="/profile.jpg" alt="Asal Yazdanpanah" className="w-32 h-32 rounded-full border-4 border-purple-400 shadow-lg" />
+                    <img src="your-photo.jpg" alt="Asal Yazdanpanah" className="w-32 h-32 rounded-full border-4 border-purple-400 shadow-lg" />
                     <h1 className="text-3xl text-purple-300 font-bold mt-4">Asal Yazdanpanah</h1>
                     <p className="text-lg mt-2">
                         Psychology Student at 
